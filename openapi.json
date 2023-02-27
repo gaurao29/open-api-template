@@ -1,0 +1,627 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "POC for API Documentation",
+    "description": "POC for API Doc Design and Collaboration"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:9292"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Examples"
+    }
+  ],
+  "paths": {
+    "/api/emaples": {
+      "get": {
+        "summary": "Get all examples from system",
+        "operationId": "getAllExamples",
+        "tags": [
+          "Examples"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all charts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "display_name": {
+                        "type": "string"
+                      },
+                      "tags": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "content_type": {
+                        "type": "string"
+                      },
+                      "poll_frequency": {
+                        "type": "string"
+                      },
+                      "data_directory": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "recent_editions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "description": "edition of chart",
+                          "properties": {
+                            "edition_name": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No example found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unknown error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create new example",
+        "operationId": "postExample",
+        "tags": [
+          "Examples"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all charts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "display_name": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "content_type": {
+                      "type": "string"
+                    },
+                    "poll_frequency": {
+                      "type": "string"
+                    },
+                    "data_directory": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "recent_editions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "edition of chart",
+                        "properties": {
+                          "edition_name": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No chart found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unknown error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/emaples/{exampleId}": {
+      "get": {
+        "summary": "Get example by exampleId",
+        "operationId": "getExamplesById",
+        "tags": [
+          "Examples"
+        ],
+        "parameters": [
+          {
+            "name": "chartId",
+            "description": "The unique identifier of the chart",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of a chart",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all example from system",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "display_name": {
+                      "type": "string"
+                    },
+                    "tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "content_type": {
+                      "type": "string"
+                    },
+                    "poll_frequency": {
+                      "type": "string"
+                    },
+                    "data_directory": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "recent_editions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "description": "edition of chart",
+                        "properties": {
+                          "edition_name": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No example found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unknown error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "ChartId": {
+        "name": "chartId",
+        "description": "The unique identifier of the chart",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "description": "The unique identifier of a chart",
+          "format": "uuid"
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "error_type"
+        ],
+        "properties": {
+          "error_type": {
+            "description": "A type of error",
+            "type": "string"
+          },
+          "user_message": {
+            "description": "A human readable error message",
+            "type": "string"
+          },
+          "error_code": {
+            "description": "A error code associated to error",
+            "type": "string"
+          }
+        }
+      },
+      "ExampleId": {
+        "type": "string",
+        "description": "The unique identifier of a chart",
+        "format": "uuid"
+      },
+      "Example": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "poll_frequency": {
+            "type": "string"
+          },
+          "data_directory": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recent_editions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "edition of chart",
+              "properties": {
+                "edition_name": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NestedExample": {
+        "type": "object",
+        "description": "edition of chart",
+        "properties": {
+          "edition_name": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X_PM_PARTNER_KEY"
+      },
+      "JwtToken": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT }"
+      }
+    }
+  },
+  "security": [
+    {
+      "JwtToken": []
+    }
+  ]
+}

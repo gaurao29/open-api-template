@@ -1,0 +1,4 @@
+ApiKey:
+  $ref: "./api_key.yaml"
+JwtToken:
+  $ref: "./jwt_token.yaml"

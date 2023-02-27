@@ -1,0 +1,8 @@
+Error:
+  $ref: "./common/Error.yaml"
+ExampleId:
+  $ref: "./examples/ExampleId.yaml"
+Example:
+  $ref: "./examples/Example.yaml"
+NestedExample:
+  $ref: "./examples/NestedExample.yaml"

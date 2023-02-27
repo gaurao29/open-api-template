@@ -1,0 +1,8 @@
+name: chartId
+description: The unique identifier of the chart
+in: path
+required: true
+schema:
+  type: string
+  description: The unique identifier of a chart
+  format: uuid

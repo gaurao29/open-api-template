@@ -1,0 +1,13 @@
+type: object
+required:
+  - error_type
+properties:
+  error_type:
+    description: A type of error
+    type: string
+  user_message:
+    description: A human readable error message
+    type: string
+  error_code:
+    description: A error code associated to error
+    type: string

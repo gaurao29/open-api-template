@@ -1,0 +1,34 @@
+
+get:
+    summary: Get example by exampleId
+    operationId: getExamplesById
+    tags:
+        - Examples
+    parameters:
+        - $ref: "../../parameters/paths/examples/exampleId.yaml"
+    responses:
+        "200":
+            description: Get all example from system
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/examples/Example.yaml"
+        401:
+            description: Unauthorized
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        404:
+            description: No example found
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        500:
+            description: Unknown error
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        

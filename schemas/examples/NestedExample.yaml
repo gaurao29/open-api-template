@@ -1,0 +1,9 @@
+type: object
+description: edition of chart
+properties:
+  edition_name:
+    type: string
+  updated_at:
+    type: string
+    format: date-time
+  
