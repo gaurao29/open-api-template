@@ -36,27 +36,27 @@ post:
     tags:
         - Examples
     responses:
-        "200":
-            description: Get all charts
+        201:
+            description: Get all example entities
             content:
                 application/json:
                     schema:
                         $ref: "../../schemas/examples/Example.yaml"
                         
+        401:
+            description: Unauthorized
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
         404:
-            description: No chart found
+            description: No example found
             content:
                 application/json:
                     schema:
                         $ref: "../../schemas/common/Error.yaml"
         500:
             description: Unknown error
-            content:
-                application/json:
-                    schema:
-                        $ref: "../../schemas/common/Error.yaml"
-        default:
-            description: Unexpected error
             content:
                 application/json:
                     schema:

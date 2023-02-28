@@ -1,8 +1,8 @@
-name: chartId
-description: The unique identifier of the chart
+name: exampleId
+description: The unique identifier of the example entity
 in: path
 required: true
 schema:
   type: string
-  description: The unique identifier of a chart
+  description: The unique identifier of the example entity
   format: uuid

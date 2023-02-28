@@ -72,7 +72,7 @@
                         "type": "array",
                         "items": {
                           "type": "object",
-                          "description": "edition of chart",
+                          "description": "example nested object",
                           "properties": {
                             "edition_name": {
                               "type": "string"
@@ -96,6 +96,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -123,6 +124,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -150,6 +152,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -180,8 +183,8 @@
           "Examples"
         ],
         "responses": {
-          "200": {
-            "description": "Get all charts",
+          "201": {
+            "description": "Get all example entities",
             "content": {
               "application/json": {
                 "schema": {
@@ -226,7 +229,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "edition of chart",
+                        "description": "example nested object",
                         "properties": {
                           "edition_name": {
                             "type": "string"
@@ -243,12 +246,41 @@
               }
             }
           },
-          "404": {
-            "description": "No chart found",
+          "401": {
+            "description": "Unauthorized",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
+                  "required": [
+                    "error_type"
+                  ],
+                  "properties": {
+                    "error_type": {
+                      "description": "A type of error",
+                      "type": "string"
+                    },
+                    "user_message": {
+                      "description": "A human readable error message",
+                      "type": "string"
+                    },
+                    "error_code": {
+                      "description": "A error code associated to error",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No example found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -276,33 +308,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "error_type"
-                  ],
-                  "properties": {
-                    "error_type": {
-                      "description": "A type of error",
-                      "type": "string"
-                    },
-                    "user_message": {
-                      "description": "A human readable error message",
-                      "type": "string"
-                    },
-                    "error_code": {
-                      "description": "A error code associated to error",
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -329,20 +335,20 @@
     },
     "/api/emaples/{exampleId}": {
       "get": {
-        "summary": "Get example by exampleId",
+        "summary": "Get example by id",
         "operationId": "getExamplesById",
         "tags": [
           "Examples"
         ],
         "parameters": [
           {
-            "name": "chartId",
-            "description": "The unique identifier of the chart",
+            "name": "exampleId",
+            "description": "The unique identifier of the example entity",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The unique identifier of a chart",
+              "description": "The unique identifier of the example entity",
               "format": "uuid"
             }
           }
@@ -394,7 +400,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "description": "edition of chart",
+                        "description": "example nested object",
                         "properties": {
                           "edition_name": {
                             "type": "string"
@@ -417,6 +423,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -444,6 +451,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -471,6 +479,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
+                  "description": "Common error response object schema",
                   "required": [
                     "error_type"
                   ],
@@ -499,13 +508,13 @@
   "components": {
     "parameters": {
       "ChartId": {
-        "name": "chartId",
-        "description": "The unique identifier of the chart",
+        "name": "exampleId",
+        "description": "The unique identifier of the example entity",
         "in": "path",
         "required": true,
         "schema": {
           "type": "string",
-          "description": "The unique identifier of a chart",
+          "description": "The unique identifier of the example entity",
           "format": "uuid"
         }
       }
@@ -513,6 +522,7 @@
     "schemas": {
       "Error": {
         "type": "object",
+        "description": "Common error response object schema",
         "required": [
           "error_type"
         ],
@@ -578,7 +588,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "description": "edition of chart",
+              "description": "example nested object",
               "properties": {
                 "edition_name": {
                   "type": "string"
@@ -594,7 +604,7 @@
       },
       "NestedExample": {
         "type": "object",
-        "description": "edition of chart",
+        "description": "example nested object",
         "properties": {
           "edition_name": {
             "type": "string"
@@ -610,18 +620,13 @@
       "ApiKey": {
         "type": "apiKey",
         "in": "header",
-        "name": "X_PM_PARTNER_KEY"
-      },
-      "JwtToken": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT }"
+        "name": "X-HTTP_AUTHORIZATION"
       }
     }
   },
   "security": [
     {
-      "JwtToken": []
+      "ApiKey": []
     }
   ]
 }

@@ -11,7 +11,8 @@
 ## Test API doucmentation compile schema generation (resolved multiple file into one schema file)
 - Delete already generated openapi.json file
 - Open the root of your schema (opeapi.yaml in root folder)
-- For MacOS cmd-shft-p > OpenApi Designer: Compile Schema - Compiles a unified schema and dereferences all $refs into a single file
+- For MacOS cmd-shft-p > type OpenApi Designer: Compile Schema and enter - Compiles a unified schema and dereferences all $refs into a single file
+- This will generate resolved json of schema into one file
 
 ## OpenAPI Documentation
 - Please check v3.0.0 [Open API Docs](https://swagger.io/docs/specification/basic-structure/) to create new documentation

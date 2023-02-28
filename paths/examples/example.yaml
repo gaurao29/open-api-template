@@ -1,13 +1,13 @@
 
 get:
-    summary: Get example by exampleId
+    summary: Get example by id
     operationId: getExamplesById
     tags:
         - Examples
     parameters:
         - $ref: "../../parameters/paths/examples/exampleId.yaml"
     responses:
-        "200":
+        200:
             description: Get all example from system
             content:
                 application/json:

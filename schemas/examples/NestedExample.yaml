@@ -1,5 +1,5 @@
 type: object
-description: edition of chart
+description: example nested object
 properties:
   edition_name:
     type: string

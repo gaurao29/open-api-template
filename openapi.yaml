@@ -22,5 +22,5 @@ components:
         $ref: "./securitySchemas/_index.yaml"
             
 security:
-    - JwtToken: []
+    - ApiKey: []
 
