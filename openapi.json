@@ -186,139 +186,142 @@
                         },
                         "data": {
                           "type": "array",
-                          "properties": {
-                            "entity_id": {
-                              "type": "string"
-                            },
-                            "rank": {
-                              "type": "integer"
-                            },
-                            "brand_data": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "type": "string"
-                                },
-                                "canonical_name": {
-                                  "type": "string"
-                                },
-                                "slug": {
-                                  "type": "string"
-                                },
-                                "created_at": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                },
-                                "updated_at": {
-                                  "type": "string",
-                                  "format": "date-time"
-                                },
-                                "departments": {
-                                  "type": "array",
-                                  "items": {
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "entity_id": {
+                                "type": "string"
+                              },
+                              "rank": {
+                                "type": "integer"
+                              },
+                              "brand_data": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
                                     "type": "string"
-                                  }
-                                },
-                                "brand_clusters": {
-                                  "type": "array",
-                                  "items": {
+                                  },
+                                  "canonical_name": {
                                     "type": "string"
-                                  }
-                                },
-                                "cover_shot": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
+                                  },
+                                  "slug": {
+                                    "type": "string"
+                                  },
+                                  "created_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                  },
+                                  "updated_at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                  },
+                                  "departments": {
+                                    "type": "array",
+                                    "items": {
                                       "type": "string"
-                                    },
-                                    "picture": {
-                                      "type": "string"
-                                    },
-                                    "path": {
-                                      "type": "string"
-                                    },
-                                    "path_small": {
-                                      "type": "string"
-                                    },
-                                    "path_thumb": {
-                                      "type": "string"
-                                    },
-                                    "url": {
-                                      "type": "string"
-                                    },
-                                    "url_small": {
-                                      "type": "string"
-                                    },
-                                    "url_thumb": {
-                                      "type": "string"
-                                    },
-                                    "content_type": {
-                                      "type": "string"
-                                    },
-                                    "created_at": {
-                                      "type": "string",
-                                      "format": "date-time"
                                     }
-                                  }
-                                },
-                                "logo": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
+                                  },
+                                  "brand_clusters": {
+                                    "type": "array",
+                                    "items": {
                                       "type": "string"
-                                    },
-                                    "picture": {
-                                      "type": "string"
-                                    },
-                                    "path": {
-                                      "type": "string"
-                                    },
-                                    "path_small": {
-                                      "type": "string"
-                                    },
-                                    "path_thumb": {
-                                      "type": "string"
-                                    },
-                                    "url": {
-                                      "type": "string"
-                                    },
-                                    "url_small": {
-                                      "type": "string"
-                                    },
-                                    "url_thumb": {
-                                      "type": "string"
-                                    },
-                                    "content_type": {
-                                      "type": "string"
-                                    },
-                                    "created_at": {
-                                      "type": "string",
-                                      "format": "date-time"
                                     }
-                                  }
-                                },
-                                "aliases": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  }
-                                },
-                                "alias_slugs": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  }
-                                },
-                                "descriptions": {
-                                  "type": "object",
-                                  "additionalProperties": {
+                                  },
+                                  "cover_shot": {
                                     "type": "object",
                                     "properties": {
-                                      "top_description": {
+                                      "id": {
                                         "type": "string"
                                       },
-                                      "more_description": {
+                                      "picture": {
                                         "type": "string"
+                                      },
+                                      "path": {
+                                        "type": "string"
+                                      },
+                                      "path_small": {
+                                        "type": "string"
+                                      },
+                                      "path_thumb": {
+                                        "type": "string"
+                                      },
+                                      "url": {
+                                        "type": "string"
+                                      },
+                                      "url_small": {
+                                        "type": "string"
+                                      },
+                                      "url_thumb": {
+                                        "type": "string"
+                                      },
+                                      "content_type": {
+                                        "type": "string"
+                                      },
+                                      "created_at": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      }
+                                    }
+                                  },
+                                  "logo": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "picture": {
+                                        "type": "string"
+                                      },
+                                      "path": {
+                                        "type": "string"
+                                      },
+                                      "path_small": {
+                                        "type": "string"
+                                      },
+                                      "path_thumb": {
+                                        "type": "string"
+                                      },
+                                      "url": {
+                                        "type": "string"
+                                      },
+                                      "url_small": {
+                                        "type": "string"
+                                      },
+                                      "url_thumb": {
+                                        "type": "string"
+                                      },
+                                      "content_type": {
+                                        "type": "string"
+                                      },
+                                      "created_at": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                      }
+                                    }
+                                  },
+                                  "aliases": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "alias_slugs": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "descriptions": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                      "type": "object",
+                                      "properties": {
+                                        "top_description": {
+                                          "type": "string"
+                                        },
+                                        "more_description": {
+                                          "type": "string"
+                                        }
                                       }
                                     }
                                   }
@@ -1052,139 +1055,142 @@
               },
               "data": {
                 "type": "array",
-                "properties": {
-                  "entity_id": {
-                    "type": "string"
-                  },
-                  "rank": {
-                    "type": "integer"
-                  },
-                  "brand_data": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "canonical_name": {
-                        "type": "string"
-                      },
-                      "slug": {
-                        "type": "string"
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "updated_at": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "departments": {
-                        "type": "array",
-                        "items": {
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entity_id": {
+                      "type": "string"
+                    },
+                    "rank": {
+                      "type": "integer"
+                    },
+                    "brand_data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
                           "type": "string"
-                        }
-                      },
-                      "brand_clusters": {
-                        "type": "array",
-                        "items": {
+                        },
+                        "canonical_name": {
                           "type": "string"
-                        }
-                      },
-                      "cover_shot": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
+                        },
+                        "slug": {
+                          "type": "string"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "departments": {
+                          "type": "array",
+                          "items": {
                             "type": "string"
-                          },
-                          "picture": {
-                            "type": "string"
-                          },
-                          "path": {
-                            "type": "string"
-                          },
-                          "path_small": {
-                            "type": "string"
-                          },
-                          "path_thumb": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "type": "string"
-                          },
-                          "url_small": {
-                            "type": "string"
-                          },
-                          "url_thumb": {
-                            "type": "string"
-                          },
-                          "content_type": {
-                            "type": "string"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time"
                           }
-                        }
-                      },
-                      "logo": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
+                        },
+                        "brand_clusters": {
+                          "type": "array",
+                          "items": {
                             "type": "string"
-                          },
-                          "picture": {
-                            "type": "string"
-                          },
-                          "path": {
-                            "type": "string"
-                          },
-                          "path_small": {
-                            "type": "string"
-                          },
-                          "path_thumb": {
-                            "type": "string"
-                          },
-                          "url": {
-                            "type": "string"
-                          },
-                          "url_small": {
-                            "type": "string"
-                          },
-                          "url_thumb": {
-                            "type": "string"
-                          },
-                          "content_type": {
-                            "type": "string"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time"
                           }
-                        }
-                      },
-                      "aliases": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "alias_slugs": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "descriptions": {
-                        "type": "object",
-                        "additionalProperties": {
+                        },
+                        "cover_shot": {
                           "type": "object",
                           "properties": {
-                            "top_description": {
+                            "id": {
                               "type": "string"
                             },
-                            "more_description": {
+                            "picture": {
                               "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            },
+                            "path_small": {
+                              "type": "string"
+                            },
+                            "path_thumb": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            },
+                            "url_small": {
+                              "type": "string"
+                            },
+                            "url_thumb": {
+                              "type": "string"
+                            },
+                            "content_type": {
+                              "type": "string"
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        },
+                        "logo": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "picture": {
+                              "type": "string"
+                            },
+                            "path": {
+                              "type": "string"
+                            },
+                            "path_small": {
+                              "type": "string"
+                            },
+                            "path_thumb": {
+                              "type": "string"
+                            },
+                            "url": {
+                              "type": "string"
+                            },
+                            "url_small": {
+                              "type": "string"
+                            },
+                            "url_thumb": {
+                              "type": "string"
+                            },
+                            "content_type": {
+                              "type": "string"
+                            },
+                            "created_at": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        },
+                        "aliases": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "alias_slugs": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "descriptions": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                              "top_description": {
+                                "type": "string"
+                              },
+                              "more_description": {
+                                "type": "string"
+                              }
                             }
                           }
                         }

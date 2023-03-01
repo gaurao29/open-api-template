@@ -10,4 +10,5 @@ properties:
     format: date-time
   data:
     type: array
-    $ref: './BrandDetails.yaml'
+    items:
+      $ref: './BrandDetails.yaml'
