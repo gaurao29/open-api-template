@@ -8,14 +8,370 @@
   "servers": [
     {
       "url": "https://localhost:9292"
+    },
+    {
+      "url": "https://qa.goshd.com"
     }
   ],
   "tags": [
     {
       "name": "Examples"
+    },
+    {
+      "name": "Charts"
     }
   ],
   "paths": {
+    "/api/meta/charts": {
+      "get": {
+        "summary": "Get all charts",
+        "operationId": "getAllCharts",
+        "tags": [
+          "Charts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get all available charts from system",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "display_name": {
+                        "type": "string"
+                      },
+                      "tags": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "content_type": {
+                        "type": "string"
+                      },
+                      "poll_frequency": {
+                        "type": "string"
+                      },
+                      "data_directory": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "recent_editions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "edition_name": {
+                              "type": "string"
+                            },
+                            "updated_at": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unknown error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "description": "Common error response object schema",
+                    "properties": {
+                      "error_type": {
+                        "description": "A type of error",
+                        "type": "string"
+                      },
+                      "user_message": {
+                        "description": "A human readable error message",
+                        "type": "string"
+                      },
+                      "error_code": {
+                        "description": "A error code associated to error",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "example": {
+                    "error": {
+                      "error_type": "InternalError",
+                      "user_message": "Unable to connect",
+                      "error_code": "500"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/meta/charts/{chartId}/edition": {
+      "get": {
+        "summary": "Get most recent edition of chart",
+        "operationId": "getMostRecentChartEdition",
+        "tags": [
+          "Charts"
+        ],
+        "parameters": [
+          {
+            "name": "chartId",
+            "description": "The unique identifier of the example entity",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The unique identifier of the example entity",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get most recent chart edition",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "chart_name": {
+                      "type": "string"
+                    },
+                    "chart_display_name": {
+                      "type": "string"
+                    },
+                    "chart_content_type": {
+                      "type": "string"
+                    },
+                    "chart_edition": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "data": {
+                          "type": "array",
+                          "properties": {
+                            "entity_id": {
+                              "type": "string"
+                            },
+                            "rank": {
+                              "type": "integer"
+                            },
+                            "brand_data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "canonical_name": {
+                                  "type": "string"
+                                },
+                                "slug": {
+                                  "type": "string"
+                                },
+                                "created_at": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "updated_at": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "departments": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "brand_clusters": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "cover_shot": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "picture": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "path_small": {
+                                      "type": "string"
+                                    },
+                                    "path_thumb": {
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "type": "string"
+                                    },
+                                    "url_small": {
+                                      "type": "string"
+                                    },
+                                    "url_thumb": {
+                                      "type": "string"
+                                    },
+                                    "content_type": {
+                                      "type": "string"
+                                    },
+                                    "created_at": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    }
+                                  }
+                                },
+                                "logo": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "picture": {
+                                      "type": "string"
+                                    },
+                                    "path": {
+                                      "type": "string"
+                                    },
+                                    "path_small": {
+                                      "type": "string"
+                                    },
+                                    "path_thumb": {
+                                      "type": "string"
+                                    },
+                                    "url": {
+                                      "type": "string"
+                                    },
+                                    "url_small": {
+                                      "type": "string"
+                                    },
+                                    "url_thumb": {
+                                      "type": "string"
+                                    },
+                                    "content_type": {
+                                      "type": "string"
+                                    },
+                                    "created_at": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    }
+                                  }
+                                },
+                                "aliases": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "alias_slugs": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "descriptions": {
+                                  "type": "object",
+                                  "additionalProperties": {
+                                    "type": "object",
+                                    "properties": {
+                                      "top_description": {
+                                        "type": "string"
+                                      },
+                                      "more_description": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unknown error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "description": "Common error response object schema",
+                    "properties": {
+                      "error_type": {
+                        "description": "A type of error",
+                        "type": "string"
+                      },
+                      "user_message": {
+                        "description": "A human readable error message",
+                        "type": "string"
+                      },
+                      "error_code": {
+                        "description": "A error code associated to error",
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "example": {
+                    "error": {
+                      "error_type": "InternalError",
+                      "user_message": "Unable to connect",
+                      "error_code": "500"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/emaples": {
       "get": {
         "summary": "Get all examples from system",
@@ -25,7 +381,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Get all charts",
+            "description": "Get all examples",
             "content": {
               "application/json": {
                 "schema": {
@@ -97,9 +453,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -125,9 +478,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -153,9 +503,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -253,9 +600,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -281,9 +625,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -309,9 +650,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -424,9 +762,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -452,9 +787,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -480,9 +812,6 @@
                 "schema": {
                   "type": "object",
                   "description": "Common error response object schema",
-                  "required": [
-                    "error_type"
-                  ],
                   "properties": {
                     "error_type": {
                       "description": "A type of error",
@@ -523,9 +852,6 @@
       "Error": {
         "type": "object",
         "description": "Common error response object schema",
-        "required": [
-          "error_type"
-        ],
         "properties": {
           "error_type": {
             "description": "A type of error",
@@ -538,6 +864,34 @@
           "error_code": {
             "description": "A error code associated to error",
             "type": "string"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "description": "Common error response object schema",
+          "properties": {
+            "error_type": {
+              "description": "A type of error",
+              "type": "string"
+            },
+            "user_message": {
+              "description": "A human readable error message",
+              "type": "string"
+            },
+            "error_code": {
+              "description": "A error code associated to error",
+              "type": "string"
+            }
+          }
+        },
+        "example": {
+          "error": {
+            "error_type": "InternalError",
+            "user_message": "Unable to connect",
+            "error_code": "500"
           }
         }
       },
@@ -614,19 +968,255 @@
             "format": "date-time"
           }
         }
+      },
+      "Chart": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "poll_frequency": {
+            "type": "string"
+          },
+          "data_directory": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recent_editions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "edition_name": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      },
+      "MostRecentChartEdition": {
+        "type": "object",
+        "properties": {
+          "chart_name": {
+            "type": "string"
+          },
+          "chart_display_name": {
+            "type": "string"
+          },
+          "chart_content_type": {
+            "type": "string"
+          },
+          "chart_edition": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "created_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "data": {
+                "type": "array",
+                "properties": {
+                  "entity_id": {
+                    "type": "string"
+                  },
+                  "rank": {
+                    "type": "integer"
+                  },
+                  "brand_data": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "canonical_name": {
+                        "type": "string"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "departments": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "brand_clusters": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "cover_shot": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "picture": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "path_small": {
+                            "type": "string"
+                          },
+                          "path_thumb": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "url_small": {
+                            "type": "string"
+                          },
+                          "url_thumb": {
+                            "type": "string"
+                          },
+                          "content_type": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      },
+                      "logo": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "picture": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "path_small": {
+                            "type": "string"
+                          },
+                          "path_thumb": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "url_small": {
+                            "type": "string"
+                          },
+                          "url_thumb": {
+                            "type": "string"
+                          },
+                          "content_type": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      },
+                      "aliases": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "alias_slugs": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "descriptions": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "object",
+                          "properties": {
+                            "top_description": {
+                              "type": "string"
+                            },
+                            "more_description": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "securitySchemes": {
       "ApiKey": {
         "type": "apiKey",
         "in": "header",
-        "name": "X-HTTP_AUTHORIZATION"
+        "name": "X_HTTP_AUTHORIZATION"
+      },
+      "PartnerKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X_PM_PARTNER_KEY"
       }
     }
   },
   "security": [
     {
       "ApiKey": []
+    },
+    {
+      "PartnerKey": []
     }
   ]
 }

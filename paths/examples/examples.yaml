@@ -4,8 +4,8 @@ get:
     tags:
         - Examples
     responses:
-        "200":
-            description: Get all charts
+        200:
+            description: Get all examples
             content:
                 application/json:
                     schema:

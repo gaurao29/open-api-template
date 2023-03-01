@@ -1,0 +1,11 @@
+type: object
+properties:
+  chart_name: 
+    type: string
+  chart_display_name:
+    type: string
+  chart_content_type:
+    type: string
+  chart_edition:
+    type: object
+    $ref: './RecentChartEditionDetails.yaml'

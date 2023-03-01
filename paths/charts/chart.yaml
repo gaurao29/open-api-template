@@ -1,0 +1,20 @@
+get:
+    summary: Get most recent edition of chart
+    operationId: getMostRecentChartEdition
+    tags:
+        - Charts
+    parameters:
+        - $ref: "../../parameters/paths/charts/chartId.yaml"
+    responses:
+        200:
+            description: Get most recent chart edition 
+            content:
+                application/json:
+                    schema:
+                      $ref: "../../schemas/charts/MostRecentChartEdition.yaml"
+        default:
+            description: Unknown error
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/ErrorResponse.yaml"

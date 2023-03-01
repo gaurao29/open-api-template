@@ -1,0 +1,9 @@
+type: object
+properties:
+  entity_id: 
+    type: string
+  rank: 
+    type: integer
+  brand_data: 
+    type: object
+    $ref: "./BrandData.yaml"

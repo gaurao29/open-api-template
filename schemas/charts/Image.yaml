@@ -1,0 +1,23 @@
+type: object
+properties:
+  id: 
+    type: string
+  picture: 
+    type: string
+  path: 
+    type: string
+  path_small: 
+    type: string
+  path_thumb:
+    type: string
+  url: 
+    type: string
+  url_small: 
+    type: string
+  url_thumb: 
+      type: string
+  content_type: 
+      type: string
+  created_at: 
+      type: string
+      format: date-time

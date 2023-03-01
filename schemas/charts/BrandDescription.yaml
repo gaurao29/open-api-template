@@ -1,0 +1,8 @@
+type: object
+additionalProperties:
+  type: object
+  properties:
+    top_description:
+      type: string
+    more_description:
+      type: string

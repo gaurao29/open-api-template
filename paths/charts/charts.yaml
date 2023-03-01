@@ -1,0 +1,20 @@
+get:
+    summary: Get all charts
+    operationId: getAllCharts
+    tags:
+        - Charts
+    responses:
+        200:
+            description: Get all available charts from system
+            content:
+                application/json:
+                    schema:
+                      type: array
+                      items:
+                        $ref: "../../schemas/charts/ChartDetail.yaml"
+        default:
+            description: Unknown error
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/ErrorResponse.yaml"

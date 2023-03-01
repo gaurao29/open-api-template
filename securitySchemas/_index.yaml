@@ -1,2 +1,4 @@
 ApiKey:
-  $ref: "./api_key.yaml"
+  $ref: "./auth_key.yaml"
+PartnerKey:
+  $ref: "./partner_key.yaml"

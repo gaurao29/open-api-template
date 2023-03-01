@@ -1,0 +1,41 @@
+type: object
+properties:
+  id: 
+    type: string
+  canonical_name: 
+    type: string
+  slug: 
+    type: string
+  created_at: 
+    type: string
+    format: date-time
+  updated_at: 
+    type: string
+    format: date-time
+  departments: 
+    type: array
+    items:
+      type: string
+  brand_clusters: 
+    type: array
+    items:
+      type: string
+  cover_shot:
+    type: object
+    $ref: "./Image.yaml"
+  logo:
+    type: object
+    $ref: "./Image.yaml"
+  aliases:
+    type: array
+    items:
+      type: string
+  alias_slugs:
+    type: array
+    items:
+      type: string
+  descriptions:
+    type: object
+    $ref: "./BrandDescription.yaml"
+
+  

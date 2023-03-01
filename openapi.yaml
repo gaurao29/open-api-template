@@ -5,10 +5,16 @@ info:
     description:  "POC for API Doc Design and Collaboration"
 servers:
     - url: https://localhost:9292
+    - url: https://qa.goshd.com
 tags:
   - name: Examples
+  - name: Charts
 
 paths:
+    /api/meta/charts:
+        $ref: "./paths/charts/charts.yaml"
+    /api/meta/charts/{chartId}/edition:
+        $ref: "./paths/charts/chart.yaml"
     /api/emaples:
         $ref: "./paths/examples/examples.yaml"
     /api/emaples/{exampleId}:
@@ -20,7 +26,9 @@ components:
         $ref: "./schemas/_index.yaml"
     securitySchemes:
         $ref: "./securitySchemas/_index.yaml"
-            
+
+#https://swagger.io/docs/specification/authentication/api-keys/        
 security:
     - ApiKey: []
+    - PartnerKey: []
 
