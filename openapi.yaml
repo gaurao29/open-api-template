@@ -1,14 +1,21 @@
 openapi: "3.0.0"
+
+#https://swagger.io/docs/specification/basic-structure/
 info:
     version: "1.0.0"
     title: "POC for API Documentation"
     description:  "POC for API Doc Design and Collaboration"
+
+#https://swagger.io/docs/specification/api-host-and-base-path/
 servers:
     - url: http://localhost:5673
-tags:
-  - name: Examples
-  - name: Charts
 
+# https://swagger.io/docs/specification/grouping-operations-with-tags/
+tags:
+  - name: Charts
+  - name: Examples
+
+#https://swagger.io/docs/specification/paths-and-operations/
 paths:
     /meta/charts:
         $ref: "./paths/charts/charts.yaml"
@@ -18,6 +25,7 @@ paths:
         $ref: "./paths/examples/examples.yaml"
     /api/emaples/{exampleId}:
         $ref: "./paths/examples/example.yaml"
+# https://swagger.io/docs/specification/components/
 components:
     parameters:
         $ref: "./parameters/_index.yaml"

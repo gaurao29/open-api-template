@@ -17,5 +17,14 @@
 ## OpenAPI Documentation
 - Please check v3.0.0 [Open API Docs](https://swagger.io/docs/specification/basic-structure/) to create new documentation
 
+## How Swagger UI is setup
+- Download latest release from [Swagger UI distribution](https://github.com/swagger-api/swagger-ui/releases)
+- Unzipped archived file and copied dist folder in template repo
+- Moved index.html to root folder and updated link and scripts references to dist/
+- Inside dist/ folder updated swagger-initializer.js url to resolved openapi.json file name.
+
+## How GH pages are setup
+
+
 ## Workflow for PR and Review
  - Still working
