@@ -4,16 +4,15 @@ info:
     title: "POC for API Documentation"
     description:  "POC for API Doc Design and Collaboration"
 servers:
-    - url: https://localhost:9292
-    - url: https://qa.goshd.com
+    - url: http://localhost:5673
 tags:
   - name: Examples
   - name: Charts
 
 paths:
-    /api/meta/charts:
+    /meta/charts:
         $ref: "./paths/charts/charts.yaml"
-    /api/meta/charts/{chartId}/edition:
+    /meta/charts/{chartId}/edition:
         $ref: "./paths/charts/chart.yaml"
     /api/emaples:
         $ref: "./paths/examples/examples.yaml"
