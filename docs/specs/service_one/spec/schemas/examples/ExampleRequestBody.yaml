@@ -1,0 +1,19 @@
+type: object
+properties:
+  id: 
+    type: string
+  updated_at: 
+    type: string
+    format: date-time
+  name: 
+    type: string
+  description: 
+      type: string
+  display_name: 
+      type: string
+  content_type: 
+    type: string
+  poll_frequency:
+    type: string
+  data_directory: 
+    type: string

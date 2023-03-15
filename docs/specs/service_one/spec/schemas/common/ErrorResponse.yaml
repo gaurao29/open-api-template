@@ -1,0 +1,8 @@
+type: object
+additionalProperties:
+  $ref: "../common/Error.yaml"
+example:
+  error:
+    error_type: "InternalError"
+    user_message: "Unable to connect"
+    error_code: "500"

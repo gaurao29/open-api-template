@@ -1,0 +1,36 @@
+openapi: '3.0.0'
+
+# https://swagger.io/docs/specification/basic-structure/
+info:
+    version: "1.0.0"
+    title: "POC for API Documentation"
+    description:  "POC for API Doc Design and Collaboration"
+
+servers:
+    - url: "http://localhost:9292"
+      description: "Localhost"
+
+tags:
+  - name: Examples
+
+paths:
+    /api/examples:
+        $ref: "./paths/examples/examples.yaml"
+    /api/examples/{exampleId}:
+        $ref: "./paths/examples/example.yaml"
+
+components:
+  securitySchemes:
+    PartnerKey:
+      type: apiKey
+      in: header
+      name: X_PM_PARTNER_KEY
+    ApiKey:        # arbitrary name for the security scheme
+      type: apiKey
+      in: header       # can be "header", "query" or "cookie"
+      name: X_HTTP_AUTHORIZATION
+
+security:
+    - ApiKey: []
+    - PartnerKey: []
+

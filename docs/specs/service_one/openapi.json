@@ -1,0 +1,328 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "description" : "POC for API Doc Design and Collaboration",
+    "title" : "POC for API Documentation",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "description" : "service_1",
+    "url" : "http://localhost:9290"
+  } ],
+  "security" : [ {
+    "ApiKey" : [ ]
+  }, {
+    "PartnerKey" : [ ]
+  } ],
+  "tags" : [ {
+    "name" : "Examples"
+  } ],
+  "paths" : {
+    "/api/examples" : {
+      "get" : {
+        "operationId" : "getAllExamples",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "items" : {
+                    "$ref" : "#/components/schemas/Example"
+                  },
+                  "type" : "array"
+                }
+              }
+            },
+            "description" : "Get all examples"
+          },
+          "401" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "No example found"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "Unknown error"
+          }
+        },
+        "summary" : "Get all examples from system",
+        "tags" : [ "Examples" ]
+      },
+      "post" : {
+        "operationId" : "postExample",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ExampleRequestBody"
+              }
+            }
+          },
+          "description" : "Optional description in *Markdown*",
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Example"
+                }
+              }
+            },
+            "description" : "example response"
+          },
+          "401" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "No example found"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "Unknown error"
+          }
+        },
+        "summary" : "Create new example",
+        "tags" : [ "Examples" ]
+      }
+    },
+    "/api/examples/{exampleId}" : {
+      "get" : {
+        "operationId" : "getExamplesById",
+        "parameters" : [ {
+          "description" : "The unique identifier of the example entity",
+          "in" : "path",
+          "name" : "exampleId",
+          "required" : true,
+          "schema" : {
+            "description" : "The unique identifier of the example entity",
+            "format" : "uuid",
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Example"
+                }
+              }
+            },
+            "description" : "Get all example from system"
+          },
+          "401" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "Unauthorized"
+          },
+          "404" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "No example found"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            },
+            "description" : "Unknown error"
+          }
+        },
+        "summary" : "Get example by id",
+        "tags" : [ "Examples" ]
+      }
+    }
+  },
+  "components" : {
+    "parameters" : {
+      "exampleId" : {
+        "description" : "The unique identifier of the example entity",
+        "in" : "path",
+        "name" : "exampleId",
+        "required" : true,
+        "schema" : {
+          "description" : "The unique identifier of the example entity",
+          "format" : "uuid",
+          "type" : "string"
+        }
+      }
+    },
+    "schemas" : {
+      "Example" : {
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "updated_at" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "display_name" : {
+            "type" : "string"
+          },
+          "tags" : {
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          },
+          "content_type" : {
+            "type" : "string"
+          },
+          "poll_frequency" : {
+            "type" : "string"
+          },
+          "data_directory" : {
+            "type" : "string"
+          },
+          "created_at" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "recent_editions" : {
+            "items" : {
+              "$ref" : "#/components/schemas/NestedExample"
+            },
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "Error" : {
+        "description" : "Common error response object schema",
+        "properties" : {
+          "error_type" : {
+            "description" : "A type of error",
+            "type" : "string"
+          },
+          "user_message" : {
+            "description" : "A human readable error message",
+            "type" : "string"
+          },
+          "error_code" : {
+            "description" : "A error code associated to error",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "ExampleRequestBody" : {
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "updated_at" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "display_name" : {
+            "type" : "string"
+          },
+          "content_type" : {
+            "type" : "string"
+          },
+          "poll_frequency" : {
+            "type" : "string"
+          },
+          "data_directory" : {
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      },
+      "NestedExample" : {
+        "description" : "example nested object",
+        "properties" : {
+          "edition_name" : {
+            "type" : "string"
+          },
+          "updated_at" : {
+            "format" : "date-time",
+            "type" : "string"
+          }
+        },
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "PartnerKey" : {
+        "in" : "header",
+        "name" : "X_PM_PARTNER_KEY",
+        "type" : "apiKey"
+      },
+      "ApiKey" : {
+        "in" : "header",
+        "name" : "X_HTTP_AUTHORIZATION",
+        "type" : "apiKey"
+      }
+    }
+  }
+}

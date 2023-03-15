@@ -1,0 +1,70 @@
+get:
+    summary: Get all examples from system
+    operationId: getAllExamples
+    tags:
+        - Examples
+    responses:
+        200:
+            description: Get all examples
+            content:
+                application/json:
+                    schema:
+                        type: array
+                        items:
+                          $ref: "../../schemas/examples/Example.yaml"
+        401:
+            description: Unauthorized
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        404:
+            description: No example found
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        default:
+            description: Unknown error
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+post:
+    summary: Create new example
+    operationId: postExample
+    tags:
+        - Examples
+    requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: "../../schemas/examples/ExampleRequestBody.yaml"
+    responses:
+        201:
+            description: example response
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/examples/Example.yaml"
+                        
+        401:
+            description: Unauthorized
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        404:
+            description: No example found
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"
+        default:
+            description: Unknown error
+            content:
+                application/json:
+                    schema:
+                        $ref: "../../schemas/common/Error.yaml"

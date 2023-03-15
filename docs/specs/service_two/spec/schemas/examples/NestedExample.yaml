@@ -1,0 +1,9 @@
+type: object
+description: example nested object
+properties:
+  edition_name:
+    type: string
+  updated_at:
+    type: string
+    format: date-time
+  

@@ -1,0 +1,2 @@
+exampleId:
+  $ref: "./paths/examples/exampleId.yaml"
